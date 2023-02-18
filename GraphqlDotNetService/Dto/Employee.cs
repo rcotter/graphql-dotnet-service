@@ -2,6 +2,7 @@ namespace GraphqlDotNetService.Dto;
 
 public record Employee(
     int Id,
+    int CompanyId,
     String Name,
-    int? Age,
-    String? Phone);
+    int? Age = null,
+    String? Phone = null);

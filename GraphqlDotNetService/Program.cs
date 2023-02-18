@@ -13,7 +13,8 @@ builder
    .BindRuntimeType<EmployeeAddress>()
    .BindRuntimeType<NotesA>()
    .BindRuntimeType<NotesB>()
-   .AddResolver("Company", "dynamicNotes", SubgraphResolvers.GetDynamicNotes());
+   .AddResolver("Company", "dynamicNotes", SubgraphResolvers.GetCompanyNotes())
+   .AddResolver("Company", "employees", SubgraphResolvers.GetCompanyEmployees());
 
 var app = builder.Build();
 app.MapGraphQL();

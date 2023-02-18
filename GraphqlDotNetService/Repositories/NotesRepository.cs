@@ -1,6 +1,6 @@
 using GraphqlDotNetService.Dto;
 
-namespace GraphqlDotNetService;
+namespace GraphqlDotNetService.Repositories;
 
 public static class NotesRepository
 {
@@ -10,6 +10,6 @@ public static class NotesRepository
       new NotesB(CompanyId: 2, Thoughts: "A very bad company", ImageUrl: "http://example.com/logo.png")
   };
 
-  public static BaseNotes? GetNotBaseNotesForCompany(int companyId) =>
+  public static BaseNotes? GetCompanyNotes(int companyId) =>
       AllNotes.FirstOrDefault(n => n.CompanyId == companyId);
 }
