@@ -41,21 +41,41 @@ https://chillicream.com/docs/hotchocolate/v13/fetching-data/projections
 Data loading
 https://chillicream.com/docs/hotchocolate/v13/fetching-data/dataloader
 
-### Dynamic Data aka Jagged Schema
-Use unions to have a sub node be one of a list of understood schemas
-https://chillicream.com/docs/hotchocolate/v13/defining-a-schema/unions
+### ✅ Dynamic Data aka Jagged Schema
+In the **schema.graphql** file see `Company -> dynamicNotes: Notes` where `union Notes = NotesA | NotesB`.
+[Unions](https://chillicream.com/docs/hotchocolate/v13/defining-a-schema/unions) let a sub node be one 
+of a list of understood schemas. Removing handling or a particular notes type will 
+result in an empty hash when encountered.
 
-A union type can be any one from a list of types.
+Example query:
+```
+{
+  companies {
+    id
+    name
+    dynamicNotes {
+      ... on NotesA {
+        text
+      }
+      ... on NotesB {
+        thoughts
+        imageUrl
+      }
+    }
+  }
+}
+```
 
 ### Instrumentation / Tracing
 https://chillicream.com/docs/hotchocolate/v13/server/instrumentation
 
-### Versioning
-https://chillicream.com/docs/hotchocolate/v13/defining-a-schema/versioning
+### ✅ Versioning
+[Versioning](https://chillicream.com/docs/hotchocolate/v13/defining-a-schema/versioning) handled by careful and slow deprecation
+before removal.
 
-Start with field/enum deprecation
-Use @deprecated directive
-https://chillicream.com/docs/hotchocolate/v13/defining-a-schema/directives
+See the use of the [`@deprecated`](https://chillicream.com/docs/hotchocolate/v13/defining-a-schema/directives) directive
+as demonstrated on the `Company -> nickname` field and the `findCompanies` query.
+
 
 ## Schema
 ```
@@ -65,7 +85,7 @@ https://chillicream.com/docs/hotchocolate/v13/defining-a-schema/directives
   
   // Deprecated
   "nickname": string
-  [README.md](..%2FREADME.md)
+
   // Exercises authorization, sorting, pagination, filtering, n+1 data fetching 
   "employees": [
     "name": string,
@@ -76,7 +96,7 @@ https://chillicream.com/docs/hotchocolate/v13/defining-a-schema/directives
     }
   ],
   // Exercises jagged schema / unions
-  "customPerCompany": {
+  "dynamicNotes": {
     ...
   }
 }
