@@ -20,9 +20,42 @@ Mechanisms to calculate and score query complexity.
 Would be implicitly applied to recursive graphs.
 https://chillicream.com/docs/hotchocolate/v13/security/operation-complexity
 
-### Pagination
-GraphQL has a formal spec
-https://chillicream.com/docs/hotchocolate/v13/fetching-data/pagination
+### ✅ Pagination
+GraphQL has a [formal spec](https://relay.dev/graphql/connections.htm) as implemented by [HotChocolate](https://chillicream.com/docs/hotchocolate/v13/fetching-data/pagination).
+On first read it is a little dense but upon understanding that the terms **edge** and
+**node** come from the world of graphs (duh!) it makes more sense. Only after a careful 
+read of the whole design does the complexity of it make sense. A nicely written client
+will hide all of this and make it friendly again.
+
+That said, HotChocolate makes setting up paging dead simple. Just add the `[UsePaging]`
+attribute and it runs. Notably an important statement is:
+```text
+For the UsePaging middleware to work, our resolver needs to return an 
+IEnumerable<T> or an IQueryable<T>. The middleware will then apply 
+the pagination arguments to what we have returned. In the case of 
+an IQueryable<T> this means that the pagination operations can be 
+directly translated to native database queries.
+```
+
+Example usage where we ask for the next 2 companies after cursor "MQ==" (which 
+we received in `endCursor` on a previous query).
+```graphql
+{
+    companies(first: 2, after: "MQ==") {
+        edges {
+            cursor
+            node {
+                id
+                name
+            }
+        }
+        pageInfo {
+            endCursor
+            hasNextPage
+        }
+    }
+}
+```
 
 ### Filtering
 https://chillicream.com/docs/hotchocolate/v13/fetching-data/filtering
@@ -48,7 +81,7 @@ of a list of understood schemas. Removing handling or a particular notes type wi
 result in an empty hash when encountered.
 
 Example query:
-```
+```graphql
 {
   companies {
     id

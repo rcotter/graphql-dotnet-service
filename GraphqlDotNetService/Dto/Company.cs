@@ -5,5 +5,5 @@ public record Company(
     String Name,
     String? Nickname = null)
 {
-  // public string[] Employees { get; init; } = Array.Empty<string>();
+    public string[] Employees { get; init; } = Array.Empty<string>();
 }
