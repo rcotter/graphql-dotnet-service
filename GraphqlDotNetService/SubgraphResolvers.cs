@@ -8,10 +8,15 @@ namespace GraphqlDotNetService;
 public static class SubgraphResolvers
 {
   public static Func<IResolverContext, object?> GetCompanyNotes() => (context) => new Query().GetDynamicNotes(
-                                                                      getParentCompany(context).Id);
+                                                                      GetParentCompany(context).Id);
 
   public static Func<IResolverContext, object?> GetCompanyEmployees() => (context) => new Query().GetEmployees(
-                                                                          getParentCompany(context).Id);
+                                                                          GetParentCompany(context).Id);
 
-  private static Company getParentCompany(IResolverContext context) => context.Parent<Company>();
+  public static Func<IResolverContext, object?> GetEmployeeAddress() => (context) => new Query().GetEmployeeAddress(
+                                                                         GetParentEmployee(context).Id);
+
+  private static Company GetParentCompany(IResolverContext context) => context.Parent<Company>();
+
+  private static Employee GetParentEmployee(IResolverContext context) => context.Parent<Employee>();
 }

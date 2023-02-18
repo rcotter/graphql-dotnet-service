@@ -1,3 +1,7 @@
 namespace GraphqlDotNetService.Dto;
 
-public record EmployeeAddress(int Id, String Street, String Number);
+public record EmployeeAddress(
+    int Id,
+    int EmployeeId,
+    string Street,
+    string Number);

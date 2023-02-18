@@ -16,6 +16,7 @@ type Employee {
     age: Int
     name: String!
     phone: String
+    address: EmployeeAddress
 }
 
 type NotesA {
@@ -35,7 +36,7 @@ type Company {
     id: ID
     name: String!
     nickname: String @deprecated(reason: "Often abused. No longer populating.")
-    
+
     """
     Each company can have their own notes format
     """

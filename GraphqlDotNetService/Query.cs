@@ -13,4 +13,7 @@ public class Query
   public dynamic? GetDynamicNotes(int companyId) => NotesRepository.GetCompanyNotes(companyId);
 
   public Employee[] GetEmployees(int companyId) => EmployeesRepository.GetCompanyEmployees(companyId);
+
+  public EmployeeAddress? GetEmployeeAddress(int employeeId) =>
+      EmployeeAddressesRepository.GetEmployeeAddress(employeeId);
 }
