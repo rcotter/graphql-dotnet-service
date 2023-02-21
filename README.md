@@ -109,6 +109,11 @@ before removal.
 See the use of the [`@deprecated`](https://chillicream.com/docs/hotchocolate/v13/defining-a-schema/directives) directive
 as demonstrated on the `Company -> nickname` field and the `findCompanies` query.
 
+### Try out MongoDb
+https://chillicream.com/docs/hotchocolate/v13/integrations/mongodb
+
+### Add a mutation
+https://chillicream.com/docs/hotchocolate/v13/defining-a-schema/mutations/
 
 ## Schema
 ```
