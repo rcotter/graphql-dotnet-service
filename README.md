@@ -1,5 +1,5 @@
 
-# GraphQL .Net Service
+# GraphQL .Net Refernce Service 2023
 A reference implementation for a bunch of GraphQL concerns.
 
 Schema is implemented "schema first" for clear git diffs. 
