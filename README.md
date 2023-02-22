@@ -74,7 +74,9 @@ https://chillicream.com/docs/hotchocolate/v13/fetching-data/projections
 Data loading
 https://chillicream.com/docs/hotchocolate/v13/fetching-data/dataloader
 
-### ✅ Dynamic Data aka Jagged Schema
+### Dynamic Data aka Jagged Schema
+***TODO https://youtu.be/wODiVDT8ECI***
+
 In the **schema.graphql** file see `Company -> dynamicNotes: Notes` where `union Notes = NotesA | NotesB`.
 [Unions](https://chillicream.com/docs/hotchocolate/v13/defining-a-schema/unions) let a sub node be one 
 of a list of understood schemas. Removing handling or a particular notes type will 
