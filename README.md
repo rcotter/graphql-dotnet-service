@@ -25,7 +25,9 @@ GraphQL has a [formal spec](https://relay.dev/graphql/connections.htm) as implem
 On first read it is a little dense but upon understanding that the terms **edge** and
 **node** come from the world of graphs (duh!) it makes more sense. Only after a careful 
 read of the whole design does the complexity of it make sense. A nicely written client
-will hide all of this and make it friendly again.
+like [Strawberry Shake for .Net](https://chillicream.com/docs/strawberryshake/v13), 
+Apollo's own [client](https://github.com/apollographql/apollo-client) will hide all of this 
+and make it friendly again. Most other languages have them as well.
 
 That said, HotChocolate makes setting up paging dead simple. Just add the `[UsePaging]`
 attribute and it runs. Notably an important statement is:
