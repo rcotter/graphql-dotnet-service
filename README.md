@@ -75,7 +75,8 @@ Data loading
 https://chillicream.com/docs/hotchocolate/v13/fetching-data/dataloader
 
 ### Dynamic Data aka Jagged Schema
-***TODO https://youtu.be/wODiVDT8ECI***
+The following use of unions would work well in many scenarios. Alterntatively there is the following approach to explore.
+***TODO Explore https://youtu.be/wODiVDT8ECI***
 
 In the **schema.graphql** file see `Company -> dynamicNotes: Notes` where `union Notes = NotesA | NotesB`.
 [Unions](https://chillicream.com/docs/hotchocolate/v13/defining-a-schema/unions) let a sub node be one 
