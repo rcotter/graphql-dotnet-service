@@ -1,6 +1,6 @@
 
 # GraphQL .Net Reference Service 2023
-A reference implementation for a bunch of GraphQL concerns.
+A reference implementation for a bunch of GraphQL concerns using [HotChocolate](https://chillicream.com/docs/hotchocolate). Watch some [videos!](https://www.youtube.com/@ChilliCream/featured)
 
 Schema is implemented "schema first" for clear git diffs. 
 
