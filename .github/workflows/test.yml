@@ -30,8 +30,8 @@ jobs:
           fail: true
           request-reviews: true
           requirements: |
-           - name: QA Automation
-             paths:
-              - config/initializers/
-             teams:
-              - @rcotter
+            - name: QA Automation
+              paths:
+                - config/initializers/
+              teams:
+                - @rcotter
