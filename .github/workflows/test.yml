@@ -35,4 +35,4 @@ jobs:
             paths:
               - config/initializers/
             teams:
-              - @rcotter
+              - "@rcotter"
