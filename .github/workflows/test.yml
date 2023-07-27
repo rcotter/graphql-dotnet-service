@@ -26,7 +26,7 @@ jobs:
       - run: echo "🍏 This job's status is ${{ job.status }}"
       - uses: Automattic/action-required-review@v3
         with:          
-          token: ${{ secrets.QA_AUTOMATION_REVIEW_REQUIRED_TOKEN }}
+          token: "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"
           status: Required Review
           fail: true
           request-reviews: true
