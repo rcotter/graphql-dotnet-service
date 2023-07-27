@@ -24,13 +24,14 @@ jobs:
       - run: echo "🍏 This job's status is ${{ job.status }}"
       - uses: Automattic/action-required-review@v3
         with:
+          name: QA Automation
           token: ${{ secrets.QA_AUTOMATION_REVIEW_REQUIRED_TOKEN }}
           status: Required Review
           fail: true
           request-reviews: true
           requirements: |
-            - name: QA Automation
-              paths:
-               - config/initializers/
-              teams:
-               @rcotter
+           - name: QA Automation
+             paths:
+              - config/initializers/
+             teams:
+              - @rcotter
