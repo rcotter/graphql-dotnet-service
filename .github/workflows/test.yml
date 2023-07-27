@@ -25,14 +25,13 @@ jobs:
           ls ${{ github.workspace }}
       - run: echo "🍏 This job's status is ${{ job.status }}"
       - uses: Automattic/action-required-review@v3
-        with:
-          name: QA Automation
+        with:          
           token: ${{ secrets.QA_AUTOMATION_REVIEW_REQUIRED_TOKEN }}
           status: Required Review
           fail: true
           request-reviews: true
           requirements: |
             paths:
-              - config/initializers/
+              - graphql-dotnet-service/GraphqlDotNetService/Repositories
             teams:
               - "@rcotter"
