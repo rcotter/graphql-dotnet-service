@@ -17,7 +17,7 @@ jobs:
     steps:
       - uses: Automattic/action-required-review@v3
         with:
-          token: ${{ github.GITHUB_TOKEN }}
+          token: "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"
           requirements: |
             - paths: unmatched
               teams:
