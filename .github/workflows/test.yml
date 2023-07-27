@@ -1,3 +1,26 @@
+name: Required review check
+on:
+  pull_request_review:
+  pull_request:
+    types: [ opened, reopened, synchronize ]
+
+jobs:
+  check:
+    name: Checking required reviews
+    runs-on: ubuntu-latest
+
+    # GitHub should provide a "pull_request_review_target", but they don't and
+    # the action will fail if run on a forked PR.
+    if: github.event.pull_request.head.repo.full_name == github.event.pull_request.base.repo.full_name
+
+    steps:
+      - uses: Automattic/action-required-review@v3
+        with:
+          token: ${{ secrets.REQUIRED_REVIEWS_TOKEN }}
+          requirements: |
+            - paths: unmatched
+              teams:
+                - "@rcotter"
 ---
 name: GitHub Actions Demo
 run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
@@ -26,7 +49,7 @@ jobs:
       - run: echo "🍏 This job's status is ${{ job.status }}"
       - uses: Automattic/action-required-review@v3
         with:          
-          token: "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"
+          token: {{ secrets.QA_TEST_TOKEN }}}
           status: Required Review
           fail: true
           request-reviews: true
