@@ -30,8 +30,4 @@ jobs:
           status: Required Review
           fail: true
           request-reviews: true
-          requirements: |
-            paths:
-              - graphql-dotnet-service/GraphqlDotNetService/Repositories
-            teams:
-              - "@rcotter"
+          requirements-file: .github/workflows/required-review.yaml        

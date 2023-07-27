@@ -1,0 +1,6 @@
+# Documentation must be reviewed by the documentation team.
+- name: QA Automation Required Review
+  paths:
+    - 'graphql-dotnet-service/GraphqlDotNetService/Repositories'
+  teams:
+    - "@rcotter"
